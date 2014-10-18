@@ -27,6 +27,7 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
+    @states = State.all
 
     respond_to do |format|
       if @recipe.save
@@ -61,6 +62,16 @@ class RecipesController < ApplicationController
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+   def category
+    @category=Category.find(params[:id])
+    @recipes = Recipe.where("category_id=?",params[:id]).order('id desc')
+  end
+
+  def state
+    @state=State.find(params[:id])
+    @recipes = Recipe.where("state_id=?",params[:id]).order('id desc')
   end
 
   private

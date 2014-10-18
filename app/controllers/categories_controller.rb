@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
+#layout 'recipes'
   # GET /categories
   # GET /categories.json
   def index
@@ -60,6 +61,8 @@ class CategoriesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

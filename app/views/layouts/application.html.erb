@@ -1,14 +1,57 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-  <title>Myrecipe</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Connoisseur</title>
+	<link href="/assets/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/assets/base.css" rel="stylesheet" type="text/css" media="screen" />
+	</head>
+	<body>
+    <div id="container">
+      <header>
+        <nav>i
+          <ul id="nav">
+            <li><%=link_to 'Home',root_url%></li>
+            <li><%=link_to 'Submit',new_recipe_path%></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <hgroup class="intro">
+          <h1 class="title">Connoisseur</h1>
+          <h3 class="tagline">Free Website Template By: <a href="http://www.priteshgupta.com">PriteshGupta.com</a></h3>
+        </hgroup>
+        <div class="reservations"><br />
+          <span class="reservations-title">Call Us:</span>
+          <hr class="hr-solid" />
+          <span class="phone-number">+012 345 6789</span>
+          <hr class="hr-dashed" />
+          <div class="email-us"> <a class="button" href="#" title="Email Us">Or Email Us</a> </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </header>
+      <div class="wrapper">
+        <div class="clear"></div>
+        <div class="border"></div>
+        <%= yield %>
+        <div class="border2"></div>
+        <br />
+      </div>
+      <footer>
+        <span class="copyright"><span class="left"><br />
+        &copy; Copyright 2012 - All Rights Reserved - <a href="#">Domain Name</a></span><span class="right"><br />
+        Design by <a href="http://www.priteshgupta.com">PriteshGupta.com</a><br />
+        <br>
+        <br />
+        </span></span></footer>
+    </div>
 </body>
 </html>

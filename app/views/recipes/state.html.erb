@@ -1,0 +1,6 @@
+<h1> Negeri <%=@state.title%></h1>
+
+<%@recipes.each do |recipe|%>
+	<%=link_to recipe.title,recipe_path(recipe)%>
+	<%=recipe.description%> <br/>
+	<%end%>

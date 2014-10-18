@@ -8,7 +8,7 @@
 <p>
   <strong>Image Url:</strong>
   <br>
-  <%=image_tag @recipe.image_url,:size =>'120x120' %>
+  <%=image_tag @recipe.image_url,:width =>'300' %>
 </p>
 
 <p>
@@ -18,27 +18,31 @@
 
 <p>
   <strong>Ingredients:</strong>
-  <%= @recipe.ingredients %>
+  <%= simple_format(@recipe.ingredients) %>
 </p>
 
 <p>
   <strong>Directions:</strong>
-  <%= @recipe.directions %>
+  <%= simple_format(@recipe.directions) %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @recipe.category_id %>
+  <%= link_to @recipe.category.title ,category_recipe_path(@recipe.category_id) unless @recipe.category.nil? %>
 </p>
 
 <p>
   <strong>State:</strong>
-  <%= @recipe.state_id %>
+  <%= link_to@recipe.state.title ,state_recipe_path(@recipe.state_id) unless @recipe.state.nil? %>
 </p>
 
 <p>
-  <strong>Published:</strong>
+  <strong>Published at</strong>
+  <%= distance_of_time_in_words_to_now(@recipe.created_at) %> ago
   <%= @recipe.published %>
+  <br>
+  <strong>Created at</strong>
+  <%=@recipe.created_at.strftime("%d %b %Y")%>
 </p>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
