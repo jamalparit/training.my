@@ -27,6 +27,10 @@
     <%= f.label :directions %><br>
     <%= f.text_area :directions %>
   </div>
+
+<%
+=begin
+%>  --- Form Lama ---
   <div class="field">
     <%= f.label :category_id %><br>
     <%= f.number_field :category_id %>
@@ -35,6 +39,15 @@
     <%= f.label :published %><br>
     <%= f.check_box :published %>
   </div>
+<%
+=end
+%>
+
+  <div class="field">
+    <%= f.label :category_id %><br>
+    <%=collection_select :recipe, :category_id, Category.all, :id, :title%>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

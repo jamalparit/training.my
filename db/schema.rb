@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018024935) do
+ActiveRecord::Schema.define(version: 20141018040540) do
+
+  create_table "categories", force: true do |t|
+    t.string   "title"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "recipes", force: true do |t|
     t.string   "title"
@@ -22,6 +29,9 @@ ActiveRecord::Schema.define(version: 20141018024935) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "state_id"
+    t.string   "image_url"
+    t.string   "video_url"
   end
 
 end
