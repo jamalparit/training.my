@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018040540) do
+ActiveRecord::Schema.define(version: 20141018041309) do
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20141018040540) do
     t.integer  "state_id"
     t.string   "image_url"
     t.string   "video_url"
+  end
+
+  create_table "states", force: true do |t|
+    t.string   "title"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

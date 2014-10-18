@@ -15,10 +15,12 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+    @states = State.all
   end
 
   # GET /recipes/1/edit
   def edit
+    @states = State.all
   end
 
   # POST /recipes
@@ -69,6 +71,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:title, :description, :ingredients, :directions, :category_id, :published)
+      params.require(:recipe).permit(:title, :description, :ingredients, :directions, :category_id, :published,:image_url,:video_url, :state_id)
     end
 end

@@ -6,6 +6,12 @@
 </p>
 
 <p>
+  <strong>Image Url:</strong>
+  <br>
+  <%=image_tag @recipe.image_url,:size =>'120x120' %>
+</p>
+
+<p>
   <strong>Description:</strong>
   <%= @recipe.description %>
 </p>
@@ -23,6 +29,11 @@
 <p>
   <strong>Category:</strong>
   <%= @recipe.category_id %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @recipe.state_id %>
 </p>
 
 <p>

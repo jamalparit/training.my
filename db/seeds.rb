@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+["Perlis", "Kedah", "Pulau Pinang"].each do |state|
+State.find_or_create_by(:title => state)
+end
