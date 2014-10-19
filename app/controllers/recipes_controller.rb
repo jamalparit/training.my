@@ -10,6 +10,8 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   # GET /recipes/1.json
   def show
+    @recipe=Recipe.find(params[:id])
+    @comments= Comment.where("recipe_id=?",@recipe.id)
   end
 
   # GET /recipes/new
@@ -74,6 +76,19 @@ class RecipesController < ApplicationController
     @recipes = Recipe.where("state_id=?",params[:id]).order('id desc')
   end
 
+  def create_comment
+    @recipe = Recipe.find(params[:id])
+    @comment = Comment.new(comment_params)
+    @comment.recipe_id =@recipe.id
+    if @comment.save
+      flash[:notice]='Terima Kasih'
+      redirect_to(recipe_path(@recipe))
+    else
+      flash[:notice]= 'Opps.. gagal...sila cuba lagi'
+      render :action => 'show'
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_recipe
@@ -83,5 +98,8 @@ class RecipesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
       params.require(:recipe).permit(:title, :description, :ingredients, :directions, :category_id, :published,:image_url,:video_url, :state_id)
+    end
+    def comment_params
+      params.require(:comment).permit(:author, :message)
     end
 end
