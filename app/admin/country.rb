@@ -1,9 +1,7 @@
-ActiveAdmin.register Recipe do
-index do
-  column :id
-  column :title
-  actions
-end
+ActiveAdmin.register Country do
+
+permit_params :title,:published
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

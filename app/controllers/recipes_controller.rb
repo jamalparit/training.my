@@ -18,6 +18,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @states = State.all
+    @categories = Category.where("published=?",true)
   end
 
   # GET /recipes/1/edit
