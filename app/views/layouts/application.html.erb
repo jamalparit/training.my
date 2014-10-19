@@ -13,9 +13,11 @@
           <ul id="nav">
             <li><%=link_to 'Home',root_url%></li>
             <li><%=link_to 'Submit',new_recipe_path%></li>
-            <li><a href="menu.html">Menu</a></li>
+            <li><%=link_to 'All',lists_recipes_path%></li>
+            <li><%=link_to 'Login',login_users_path%></li>
+            <!--li><a href="menu.html">Menu</a></li>
             <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="reviews.html">Reviews</a></li-->
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
@@ -30,18 +32,12 @@
           <hr class="hr-dashed" />
           <div class="email-us"> <a class="button" href="#" title="Email Us">Or Email Us</a> </div>
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
       </header>
       <div class="wrapper">
         <div class="clear"></div>
         <div class="border"></div>
         <%= yield %>
+        <!--%=debug(session)%-->
         <div class="border2"></div>
         <br />
       </div>

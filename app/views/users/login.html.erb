@@ -1,0 +1,12 @@
+<h1>Login</h1>
+Nama : <%= text_field :user, :name %>
+</br>
+Email <%= text_field :user, :email %>
+<br/>
+Password <%= password_field :user, :password %>
+<br/>
+<%= submit_tag "Login"%>
+<br/>
+<p>
+<%=link_to 'Register Now',register_users_path%>
+</p>

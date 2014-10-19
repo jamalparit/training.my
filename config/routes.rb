@@ -3,15 +3,32 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :states 
 
-  resources :categories
+  resources :users do
 
-  resources :recipes do
+    collection do
+      get 'login'
+      post 'login'
+      get 'register'
+      post 'register'
+  end
+
+end
+
+  resources :categories
+scope(path_names: { new: 'baru', edit: 'kemaskini' }) do
+  resources :recipes, path:'/' do
       member do
         get 'category'
         get 'state'
         post 'create_comment'
       end
+
+    collection do
+      get 'lists', path:'/senarai'
+    end
   end
+end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

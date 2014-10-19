@@ -5,4 +5,6 @@ class Recipe < ActiveRecord::Base
 	validates_length_of :title,:minimum =>5
 	validates_uniqueness_of :image_url, :on => :create, :allow_nil => true, :allow_blank=> true
 
+default_scope { where(published: true) }
+
 end

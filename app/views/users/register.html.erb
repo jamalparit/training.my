@@ -1,0 +1,13 @@
+<h1>Daftar Login</h1>
+Nama  : <%= text_field :user, :name %>
+</br>
+Email : <%= text_field :user, :email %>
+<br/>
+Password :<%= password_field :user, :password %>
+<br/>
+Confirm Password :<%= password_field :user, :password_confirmation %>
+<br/>
+<%= submit_tag "Register"%>
+<p>
+<%=link_to 'Register Now',register_users_path%>
+</p>

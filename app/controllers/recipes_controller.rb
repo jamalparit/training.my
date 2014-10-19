@@ -4,7 +4,10 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.unscoped.all
+    #session[:makan]='lapar'
+    #session[:makan]=nil
+    #reset_session
   end
 
   # GET /recipes/1
@@ -14,11 +17,15 @@ class RecipesController < ApplicationController
     @comments= Comment.where("recipe_id=?",@recipe.id)
   end
 
+  def lists
+    @recipes=Recipe.unscoped.all
+  end
+
   # GET /recipes/new
   def new
     @recipe = Recipe.new
     @states = State.all
-    @categories = Category.where("published=?",true)
+    @categories = Category.published
   end
 
   # GET /recipes/1/edit
